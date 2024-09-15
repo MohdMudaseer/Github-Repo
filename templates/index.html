@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top GitHub Repos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Top GitHub Repositories</h1>
+        <form method="POST">
+            <label for="topic">Topic:</label>
+            <input type="text" id="topic" name="topic" required>
+
+            <label for="num_repos">Number of Repositories:</label>
+            <input type="number" id="num_repos" name="num_repos" required>
+
+            <button type="submit">Find Repos</button>
+        </form>
+
+        {% if repos %}
+        <h2>Top Repositories for "{{ topic }}"</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Repository Name</th>
+                    <th>Repository URL</th>
+                    <th>Stars</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for repo in repos %}
+                <tr>
+                    <td>{{ repo[0] }}</td>
+                    <td><a href="{{ repo[1] }}">{{ repo[1] }}</a></td>
+                    <td>{{ repo[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/download_csv/{{ topic }}/{{ num_repos }}">Download as CSV</a>
+        {% endif %}
+    </div>
+</body>
+</html>
