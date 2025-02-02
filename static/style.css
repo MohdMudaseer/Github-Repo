@@ -10,29 +10,43 @@ body {
     margin: 0 auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
 }
 
 h1, h2 {
     text-align: center;
+    color: #333;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-label, input, button {
+label {
     font-size: 16px;
+    color: #555;
 }
 
 input, button {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
 }
 
 table {
@@ -50,6 +64,10 @@ th, td {
     text-align: left;
 }
 
+th {
+    background-color: #f8f9fa;
+}
+
 a {
     display: inline-block;
     padding: 10px 20px;
@@ -57,8 +75,33 @@ a {
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 a:hover {
     background-color: #218838;
+}
+
+.error {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
 }
