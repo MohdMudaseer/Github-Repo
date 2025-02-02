@@ -33,13 +33,19 @@
                 {% for repo in repos %}
                 <tr>
                     <td>{{ repo[0] }}</td>
-                    <td><a href="{{ repo[1] }}">{{ repo[1] }}</a></td>
+                    <td><a href="{{ repo[1] }}" target="_blank">{{ repo[1] }}</a></td>
                     <td>{{ repo[2] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="/download_csv/{{ topic }}/{{ num_repos }}">Download as CSV</a>
+        <a href="/download_csv/{{ topic }}/{{ num_repos }}" class="download-btn">Download as CSV</a>
+        {% endif %}
+
+        {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
         {% endif %}
     </div>
 </body>
